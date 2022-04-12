@@ -26,7 +26,7 @@ const search = () => {
 
     //sending request to server
 
-    let url = `http://ec2-44-194-4-127.compute-1.amazonaws.com/search/${query}`;
+    let url = `https://ec2-44-194-4-127.compute-1.amazonaws.com/search/${query}`;
 
     fetch(url)
       .then((response) => {
