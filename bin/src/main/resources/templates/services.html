@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.orf" th:replace="base::layout(~{::section})">
+<head>
+<link rel="stylesheet" th:href="@{/css/style3.css}" />
+<title>this is home page</title>
+</head>
+<body>
+<section class="ban ">
+<div class="sidebar">
+	<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+	<a href="#" th:href="@{/admin/add-student}" class="item">Add Students</a>
+	<a href="#" th:href="@{/admin/show_students/0}" class="item">View Students</a>	
+</div>
+	<div class="content">
+	<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+	</div>
+</section>
+</body>
+</html>

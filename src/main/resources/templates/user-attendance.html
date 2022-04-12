@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="userbase::userlayout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+		<div class="card-body">
+		<h1 class="text-center">ATTENDANCE</h1>
+		<table class="table">
+		<thead>
+		<tr>
+		<th scope="col">#ID</th>
+		<th scope="col">SUBJECT</th>
+		<th scope="col">SUBJECT CODE</th>
+
+
+		</tr>
+		</thead>
+  <tbody>
+    <tr th:each="c : ${attendance}">
+      <th scope="row" th:text="${'SUB-'+c.subid}" >1</th>
+      <td th:text="${c.subject}"> s</td>
+      <td th:text="${c.subcode}">1</td>
+    
+    
+      <td>
+     <!-- <a href="#" th:onclick="|deleteAttendance(${c.id})|" class="btn btn-danger btn-sm"></a>-->
+ 	
+ 		    	<form th:action="@{'/user/' + ${emailid} + '/attendance/' + ${c.subid}}" class="mt-2" >
+ 
+       <button type="submit" class="btn btn-primary btn-sm">SHOW ATTENDANCE</button></form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+		</div>
+		</div>
+	</section>
+</body>
+</html>

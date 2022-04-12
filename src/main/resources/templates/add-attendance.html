@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		
+		
+		<div class="card mr-3 ml-3">
+		
+			<div class="card-body">
+			
+				<h1 class="text-center">ADD SUBJECT DETAILS </h1>
+			
+				<div class="container-fluid mt-1">
+				
+				<div class="row">
+					
+					<div class="col-md-8 offset-md-2">
+					
+						<form action="#" 
+							  th:object="${attendance}"
+							  enctype="multipart/form-data"
+							  method="POST"
+							  th:action="@{'/admin/process-attendance/'+${emailid}}"
+							  class="mt-2"
+						>
+						
+						
+						<!-- subject Name  -->
+						
+						<div class="input-group">
+						
+							<div class="input-group-prepend">
+							
+								<div class="input-group-text ">
+										
+										<i class="fa fa-plus"></i>
+									
+								</div>
+							
+							</div>
+						
+							<input required type="text" id="subject" name="subject" placeholder="Enter subject here" class="form-control" />
+						
+						</div>
+						
+						
+							<!-- subcode Field -->
+						<div class="input-group mt-3">
+						
+							<div class="input-group-prepend">
+							
+								<div class="input-group-text ">
+										
+										<i class="fa fa-phone"></i>
+									
+								</div>
+							
+							</div>
+						
+							<input th:object="${attendancedetail}" required min="1"  type="text" id="subcode" name="subcode" placeholder="Enter Subject code here" class="form-control" />
+						
+						</div>
+						
+						
+						
+
+						<div class="container text-center">
+							
+						 <button class="btn btn-outline-primary">Save</button>
+						
+						</div>
+						
+						
+						
+						
+						</form>
+					
+					
+					</div>
+				
+				
+				</div>
+				
+				</div>
+			
+			
+			</div>
+		
+		</div>
+		
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		
+		<script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+    
+      <script>
+        $(document).ready(() => {
+          $(".item").removeClass("active");
+          $("#add-link").addClass("active");
+        });
+      </script>
+		
+	</section>
+</body>
+</html>

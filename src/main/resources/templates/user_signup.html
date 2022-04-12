@@ -1,0 +1,164 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.orf" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is Registration page</title>
+</head>
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-md-8 offset-md-2">
+				
+	
+					 <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+  	               	     <p class="text-center" th:text="${session.message.content}"></p>  	               	     
+  	               	     <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		             </div>
+					
+					
+					<div class="container text-center">
+			
+					
+					</div>
+					
+					  <h1 class="text-center">Register Here !!</h1>
+					  
+					  <form novalidate action="" th:action="@{/do_userregister}" method="post" th:object="${user}" >
+					  
+					  
+					  	<!-- name field  -->
+					  
+					  
+					  	 <div class="form-group">
+					  	 
+						    <label for="name_field">STUDENT NAME</label>
+						    
+						    <input 
+						      name="username"
+						      type="text"
+						      class="form-control "
+						      th:classappend="${#fields.hasErrors('username') ? 'is-invalid':''}"
+						      id="name_field" 
+						      aria-describedby="emailHelp"
+						      placeholder="Enter here"
+						      required
+						      th:value="${user.username}"
+						       />
+						       
+						       
+						        <div class="invalid-feedback" th:each="e : ${#fields.errors('username')}" th:text="${e}">
+       								 
+     							 </div>
+						    
+						    
+  						</div>
+					  
+					  	<!-- email field  -->
+					  
+					  
+					  	 <div class="form-group">
+					  	 
+						    <label for="email_field">STUDENT EMAIL</label>
+						    
+						    <input 
+						     name="email"
+						      type="email"
+						      class="form-control"
+						      id="email_field" 
+						      aria-describedby="emailHelp"
+						      placeholder="Enter here"
+						      required
+						      th:value="${user.email}"
+						       />
+						    
+						    
+  						</div>
+					  	<!-- password field  -->
+					  
+					  
+					  	 <div class="form-group">
+					  	 
+						    <label for="password_field">PASSWORD</label>
+						    
+						    <input 
+						    
+						      name="password"
+						      type="password"
+						      class="form-control"
+						      id="password_field" 
+						      aria-describedby="emailHelp"
+						      placeholder="Enter here"
+						      required
+						      
+						       />
+						    
+						    <!-- student id -->
+  						</div>
+  						 <div class="form-group">
+					  	 
+						    <label for="email_field">STUDENT ID</label>
+						    
+						    <input 
+						     name="student_id"
+						      type="number"
+						      class="form-control"
+						      id="studentid_field" 
+						      aria-describedby="emailHelp"
+						      placeholder="Enter here"
+						      required
+						      th:value="${user.student_id}"
+						       />
+						    
+						    
+  						</div>
+  						
+  						
+  						
+  						<!-- terms and condition agreement  -->
+  						
+  						
+  						<div class="form-group form-check text-center">
+  						
+  								<input type="checkbox" 
+  								name="agreement"
+  								class="form-check-input"
+  								id="agreement"
+  								
+  								/>	
+  								
+  								<label for="agreement">Accept terms and conditions</label>
+  									
+  									
+  						
+  						</div>
+  						
+  						<div class="container text-center">
+  						
+  						<button type="submit" class="btn bg-primary  text-white">
+  							Submit
+  						</button>
+  						<button type="reset" class="btn btn-warning ">
+  							Reset
+  						</button>
+  						
+  						</div>
+					  
+					  
+					  
+					  </form>
+				
+					
+					</div>
+				
+				</div>
+			
+			
+			</div>
+		
+		</div>
+	
+	</section>
+</body>
+</html>

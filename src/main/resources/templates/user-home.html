@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.orf" th:replace="userbase::userlayout(~{::section})">
+<head>
+<title>this is home page</title>
+</head>
+<body>
+<section class="banner d-flex justify-content-center align-items-center">
+<div class="card" style="width:100%; color: black;">
+  <div class="card-body text-center" style="color: red;" >
+    <h2>WELCOME <span th:text="${admin.username}"></span></h2>
+  </div>
+</div>
+
+</section>
+</body>
+</html>

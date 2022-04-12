@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.orf" th:replace="userbase::userlayout(~{::section})">
+<head>
+<link rel="stylesheet" th:href="@{/css/style3.css}" />
+<title>this is home page</title>
+</head>
+<body>
+<section class="ban ">
+<div class="sidebar">
+	<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+	<a href="#" th:href="@{/user/show_userattendance}" class="item">View Attendance</a>
+	<a href="#" th:href="@{/user/show_usermarks}" class="item">View marks</a>	
+	<a href="#" th:href="@{/user/settings}" class="item">Change Password</a>		
+</div>
+	<div class="content">
+	<i onclick="toggleSidebar()" class="fas fa-bars m-3"> </i>
+	</div>
+</section>
+</body>
+</html>

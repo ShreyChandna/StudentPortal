@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+<section>
+<div class="card mr-3 ml-3">
+		
+			<div class="card-body">
+			
+			<div class="container">
+			<div class="text-center">
+				<form th:object="${att}" method="GET" th:action="@{'/admin/' + ${subid} + '/add-attendancedetail/' + ${emailid}}" class="mt-2" >
+ 
+       <button type="submit" class="btn btn-primary btn-sm">ADD ATTENDANCE</button></form>
+			</div>
+			</div>
+			
+		
+		</section>
+</body>
+</html>

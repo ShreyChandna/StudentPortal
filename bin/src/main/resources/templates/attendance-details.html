@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+		<div class="card-body">
+		<h1 class="text-center">ATTENDANCE</h1>
+		
+		<!-- Search -->
+		<div class="search-container my-3">
+		<input onkeyup="search()" id ="search-input" type="text" class="form-control" placeholder="Search Student"/>
+		<div class="search-result">
+		<h1>hello</h1>
+		</div>
+		</div>
+		
+		<table class="table">
+		<thead>
+		<tr>
+		<th scope="col">#ID</th>
+		<th scope="col">SUBJECT</th>
+		<th scope="col">SUBJECT CODE</th>
+		<th scope="col">LECTURES HELD</th>
+		<th scope="col">ABSENT</th>
+
+		</tr>
+		</thead>
+  <tbody>
+    <tr th:each="c : ${attendance}">
+      <th scope="row" th:text="${'SUB-'+c.subid}" >1</th>
+      <td th:text="${c.subject}"> s</td>
+      <td th:text="${c.subcode}">1</td>
+      <td th:text="${c.lecturesheld}">4</td>
+      <td th:text="${c.absent}">2</td>
+
+      <td>
+      <a href="#" th:onclick="|deleteAttendance(${c.subid})|" class="btn btn-danger btn-sm">DELETE</a>
+ 	
+ 		<form method="POST" th:action="@{'/admin/update-attendance/'+${c.subid}}" class="mt-2" >
+ 
+       <button type="submit" class="btn btn-primary btn-sm">UPDATE</button></form>
+       </td>
+    </tr>
+  </tbody>
+</table>
+<!-- pagination -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li th:if="${currentpage != 0}" class="page-item"><a th:href="@{'/admin/show_attendance/'+${currentpage-1}}" class="page-link" href="#">Previous</a></li>
+    <li th:classappend="${currentpage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a th:href="@{'/admin/show_attendance/'+${i-1}}" class="page-link" href="#"><span th:text="${i}"></span></a></li>
+
+    <li th:if="${currentpage+1 != totalPages}" class="page-item"><a th:href="@{'/admin/show_attendance/'+${currentpage+1}}" class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+		</div>
+		</div>
+	</section>
+</body>
+</html>

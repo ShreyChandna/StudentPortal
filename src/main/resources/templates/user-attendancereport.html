@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="userbase::userlayout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+		<div class="card-body">
+		<h1 class="text-center">ATTENDANCE</h1>
+		
+		<!-- Search -->
+		<div class="search-container my-3">
+		<input onkeyup="search()" id ="search-input" type="text" class="form-control" placeholder="Search Student"/>
+		<div class="search-result">
+		<h1>hello</h1>
+		</div>
+		</div>
+		
+		<table class="table">
+		<thead>
+		<tr>
+		<th scope="col">TOTAL CLASSES</th>
+		<th scope="col">ABSENT</th>
+		<th scope="col">PRESENT</th>
+		<th scope="col">PERCENTAGE</th>
+	
+		</tr>
+		</thead>
+  <tbody>
+    <tr>
+      <td th:text="${TotalAttendance}"> s</td>
+ 		<td th:text="${absent}">shrey</td>
+ 		<td th:text="${present}">1</td>	
+ 		<td th:text="${Percentage}" >2</td>
+       
+    </tr>
+  </tbody>
+</table>

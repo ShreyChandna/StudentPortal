@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.orf" th:replace="base::layout(~{::section})">
+<head>
+<title>this is home page</title>
+</head>
+<body>
+<section class="banner d-flex justify-content-center align-items-center">
+<!--<h1>WELCOME STUDENT!!!! :)</h1>
+<h1>USERNAME <span th:text="${user.username}"></span></h1>
+<h1>USER EMAIL <span th:text="${user.email}"></span></h1>
+<h1><a href="" th:href="@{/logout}">logout</a></h1>-->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="color: white;" scope="col">#</th>
+      <th style="color: white;" scope="col">NAME</th>
+      <th style="color: white;" scope="col">EMAIL ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th style="color: white;" scope="row">1</th>
+      <td style="color: white;"><span th:text="${admin.username}"></span></td>
+      <td style="color: white;"><span th:text="${admin.email}"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+		<div class="card-body">
+		<h1 class="text-center">Students</h1>
+		
+		<!-- Search -->
+		<div class="search-container my-3">
+		<input onkeyup="search()" id ="search-input" type="text" class="form-control" placeholder="Search Student"/>
+		<div class="search-result">
+		<h1>hello</h1>
+		</div>
+		</div>
+		
+		<table class="table">
+		<thead>
+		<tr>
+		<th scope="col">#ID</th>
+		<th scope="col">NAME</th>
+		<th scope="col">ACADEMIC YEAR</th>
+		<th scope="col">PHONE</th>
+		<th scope="col">PROGRAM</th>
+		<th scope="col">SEMESTER</th>
+		<th scope="col">ROLL NUMBER</th>
+		<th scope="col">SAP ID</th>	
+		</tr>
+		</thead>
+  <tbody>
+    <tr th:each="c : ${studentdetails}">
+      <th scope="row" th:text="${'SAP-'+c.student_id}" >1</th>
+      <td>
+      <a href"#" th:href="@{'/admin/'+${c.student_id}+'/studentdetails'}">
+      <span th:text="${c.name}"> </span>
+      </a>
+      </td>
+      <td th:text="${c.acyear}">Otto</td>
+      <td th:text="${c.phone}"> </td>
+      <td th:text="${c.program}">Mark</td>
+      <td th:text="${c.semester}">Otto</td>
+      <td th:text="${c.rollno}">@mdo</td>
+       <td th:text="${c.sapid}">@mdo</td>
+       <td>
+       <div class="container">
+		<a href="#" th:href="@{'/admin/add-marks/'+${c.student_id}}" class="btn btn-danger btn-sm"> ADD MARKS</a>
+		<a href="#" th:href="@{'/admin/add-attendance/'+${c.student_id}}" class="btn btn-danger btn-sm"> ADD ATTENDANCE</a>
+		<a href="#" th:href="@{'/admin/'+${c.student_id}+'/attendance'}" class="btn btn-danger btn-sm"> SHOW ATTENDANCE</a>
+		<a href="#" th:href="@{'/admin/'+${c.student_id}+'/marks'}"  class="btn btn-danger btn-sm"> SHOW MARKS</a>
+		</div>
+       </td>
+      
+    </tr>
+  </tbody>
+</table>

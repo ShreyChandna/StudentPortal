@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		
+		
+		<div class="card mr-3 ml-3">
+		
+			<div class="card-body">
+			
+				<h1 class="text-center">UPDATE ATTENDANCE </h1>
+				
+				<div class="container-fluid mt-1">
+				
+				<div class="row">
+					
+					<div class="col-md-8 offset-md-2">
+					
+						<form action="#" 
+							  th:object="${att}"
+							  
+							  enctype="multipart/form-data"
+							  method="POST"
+							  th:action="@{'/admin/' +${id}+ '/process-ADate/' +${subid}+ '/update/' +${emailid}}"
+							  class="mt-2"
+						>
+						
+		
+							<input type="hidden" th:value="${att.totalAttendance}" name="totalAttendance"/>
+							<input type="hidden" th:value="${att.percentage}" name="percentage"/>
+							<input type="hidden" th:value="${att.presents}" name="presents"/>
+							<input type="hidden" th:value="${att.absents}" name="absents"/>
+						
+						
+						<!-- date field-->
+							<div class="input-group mt-3">
+						
+							<div class="input-group-prepend">
+							
+								<div class="input-group-text ">
+										
+										<i class="fa fa-phone"></i>
+									
+								</div>
+							
+							</div>
+						
+							<input th:value="${att.date}" type="date" min="2019-01-01" max="2022-12-31"  id="date" name="date" placeholder="Enter date " class="form-control" />
+						
+						</div>
+						
+
+
+                          <!-- attend field -->
+						
+					 <div class= "container text-center">
+  						<div class="form-check form-check-inline mt-2">
+						  <input class="form-check-input" type="radio" name="present" id="present">
+						  <label class="form-check-label" for="inlineRadio1">PRESENT</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="absent" id="absent">
+						  <label class="form-check-label" for="inlineRadio2">ABSENT</label>
+						</div>
+  						</div>	
+						
+						
+
+						<div class="container text-center">
+							
+						 <button class="btn btn-outline-primary">Save</button>
+						
+						</div>
+						
+						
+						
+						
+						</form>
+					
+					
+					</div>
+				
+				
+				</div>
+				
+				</div>
+			
+			
+			</div>
+		
+		</div>
+	</section>
+</body>
+</html>
